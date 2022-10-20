@@ -1,0 +1,19 @@
+.container{
+    box-shadow: 0 3px 13px 1px rgb(0 0 0 / 9%);
+}
+.contenido{
+    box-shadow: 0 3px 13px 1px rgb(0 0 0 / 9%);
+    background-color: #d7d7d7;
+}
+.col-md-4{
+    
+
+    width: 500px;
+    height: 400px;
+    margin: 50px 900px 50px;
+    display: flex;
+    align-items: center;
+    background-color: #d7d7d7;
+    justify-content: center;
+    box-shadow: 0 3px 13px 1px rgb(0 0 0 / 9%);  
+}

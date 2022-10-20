@@ -1,0 +1,90 @@
+.logo{
+    height: 50px;
+
+}
+body{
+    background: url(fondo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.pie-pagina{
+    width: 100%;
+    background-color: #d0d4d7;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    
+}
+
+.pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap:20px;   
+}
+
+.pie-pagina .grupo-1 .box figure img{
+    width: 70px;
+}
+.pie-pagina .grupo-1 .box h2{
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 10px;
+}
+.pie-pagina .grupo-1 .box2 p{
+    color: #030303;
+    margin-top:0px;
+    font-size: 15px;
+    font-weight: 700;
+}
+.box2{
+    margin-top: 0px;
+}
+
+.pie-pagina .grupo-1 .red-social a:hover{
+    color: aqua;
+}
+.pie-pagina .grupo-2{
+    background-color: #070707;
+    padding: 0px 0px;
+    text-align: center;
+    color: #fff;
+}
+.pie-pagina .grupo-2 small{
+    font-size: 15px;
+}
+.box3{
+    margin-top: 0px;
+}
+.cuerpo li{
+    padding: 20px;
+    margin-right: 0PX;
+    margin-left: 0;
+}
+.foto1{
+    width: 100%;
+}
+.foto2{
+    width: 100%;
+}
+.cuerpo1{
+    margin-left: 100px;
+}
+@media screen and (max-width:500px){
+    .pie-pagina .grupo-1{
+        width: 70%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap:20px;
+        padding: 25px 0px;
+    }
+    .box2{
+        margin-top: 0px;
+        margin-left: 70px;
+    }
+    .box3{
+        margin-top: 0px;
+        margin-left: 60px;
+    }
+}
