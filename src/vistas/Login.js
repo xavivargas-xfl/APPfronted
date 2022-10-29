@@ -17,34 +17,40 @@ export function Login() {
 
     return (
       <>
-      <div className="row justify-content-center pt-1">
-      <div className="col-md-4" style={{background:"black"}}>     
-        <form className="px-4 py-3" style={{background:"black"}}>
-            <div className="form-group">
-              <h1 style={{color:"orange", textAlign:"center"}}>INICIAR SESION</h1><br/>
-              <label style={{color:"white"}}>Correo Electronico</label>
-              <input onChange={(e)=>setEmail(e.target.value)}
-              type="email" className="form-control" id="correo"
-              placeholder="email@example.com" required></input>
+      <br></br>
+      
+          <div className="row d-flex justify-content-center pt-1">
+            <div className="col-md-4">     
+              <div className="card p-4">
+              <h1 className="text-center mb-3">Iniciar Secion </h1>
 
+                  <div className="form-group">
+                    
+                    <label >Correo Electronico</label>
+                    <input onChange={(e)=>setEmail(e.target.value)}
+                    type="email" className="form-control" id="correo"
+                    placeholder="email@example.com" required></input>
+                  </div>
+
+                  <div className="form-group">
+                    <label >Contraseña</label>
+                    <input onChange={(e)=>setPassword(e.target.value)}
+                    type="password" className="form-control" id="contraseña"
+                    placeholder="Password"></input>
+                  </div>
+
+                  <button onClick={submitForm} type="button" className="btn btn-secondary mt-4">Entrar</button>
+                  <nav>
+                    <Link to="recuperar">¿Olvidaste tu contraseña?</Link><br></br>             
+                  </nav>
+                  
+              </div>
+              
+              <div className="dropdown-divider"></div>
+                
+              </div>
             </div>
-            <div className="form-group">
-              <label style={{color:"white"}}>Contraseña</label>
-              <input onChange={(e)=>setPassword(e.target.value)}
-              type="password" className="form-control" id="contraseña"
-              placeholder="Password"></input>
-            </div>
-            <button onClick={submitForm} type="button" className="btn btn-primary">Entrar</button>
-            <nav>
-              <Link to="recuperar">¿Olvidaste tu contraseña?</Link><br></br>             
-            </nav>
-            
-        </form>
         
-        <div className="dropdown-divider"></div>
-          
-        </div>
-        </div>
 </>   
 );
 }

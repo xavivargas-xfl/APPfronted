@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import {Nav} from "react-bootstrap"
+import {Nav,  Navbar, NavDropdown, Button, Card} from "react-bootstrap"
 import Formjuez from './Formjuez';
 import Formjugador from './Formjugador';
 import AuthUser from './AuthUser';
@@ -12,6 +12,7 @@ import EditarJugador from "./EditarJugador";
 import FormDelegado from './FormDelegado';
 import ListarDelegado from './ListarDelegado';
 import EditarDelegado from './EditarDelegado';
+import balonNaranja from "../img/balonNaranja.png";
 
 function Usuario() {
     const {user} = AuthUser();
@@ -24,39 +25,32 @@ function Usuario() {
 
 return (
     <>
-    <div className="container p-3 my-3 bg-dark text-white">
-            <h3>BIENVENIDO</h3>
-            <h4>Usuario :  {user.name}------------------- Email :  {user.email}</h4>    
-    </div>  
-    <div className="container">
-        <h1 style={{color:"orange", textAlign:"center"}}>LIGA DE BASKET</h1>
-        <header>
-            <div className="container">
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul className="navbar-nav me-auto mt-2 mt-lg-0 w-100">
-                    <li className="nav-item active">
-                    <Nav.Link as = {Link} to ={"listar-delegado"}><span>DELEGADOS</span></Nav.Link>
-                    </li>
-                    <li className="nav-item active">
-                    <Nav.Link as = {Link} to ={"listar-jugador"}><span>JUGADORES</span></Nav.Link>
-                    </li>
-                    <li className="nav-item">
-                    <Nav.Link as = {Link} to ={"listar-juez"}><span>JUECES</span></Nav.Link>
-                    </li>
-                    <li className="nav-item flex-fill">
-                    </li>
-                    <li className="nav-item">
-                    <span role="button" className="nav-link" onClick={logoutUser}>CERRAR SESION</span>
-                    </li>
-                    </ul>                   
-                </div>
-            </nav>
-            </div>
+    <div className="">
+    
+       
+         <header>
+              <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
+                  <>
+                    <Navbar.Brand  href="#home"><span><img className="logo" src={balonNaranja} alt="nice"/></span>MAXI-BASKET</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                      <Nav className="me-auto">
+                        <Nav.Link as = {Link} to ={"listar-delegado"}>DELEGADOS</Nav.Link>
+                        <Nav.Link as = {Link} to ={"listar-jugador"}>JUGADORES</Nav.Link>
+                        <Nav.Link as = {Link} to ={"listar-juez"}>JUECES</Nav.Link>
+                                           
+                      </Nav>
+                      <Nav>                       
+                         <Nav.Link as = {Link} to ={""} onClick={logoutUser} className="text-center"><span className="text-white"><i class="fas fa-user-tie">{user.email}</i></span><br></br> Cerrar Seción </Nav.Link>
+                      </Nav>
+                    </Navbar.Collapse>
+                  </>
+                </Navbar>
         </header>
+
     
         <Routes>
-        <Route path="/" element={<Usuario />} />
+        <Route path="/" element={<Usuario/>}/>
         <Route path="validarregistro" element={<ValidarRegistro />} />
         <Route path="form-jugador" element={<Formjugador />} />
         <Route path="form-delegado" element={<FormDelegado />} />
@@ -68,6 +62,20 @@ return (
         <Route path='/editar-jugador/:id' element={ <EditarJugador/> } />
         <Route path='/editar-delegado/:id' element={ <EditarDelegado/> } />
         </Routes>
+        
+
+        <footer className="pie-pagina" expand="lg">
+            
+            
+            <Card className="text-center bg-dark text-white">          
+              <Card.Body>
+                <Card.Title><small>&copy; 2022 <b>SAS</b> - Todos los Derechos Reservados.</small></Card.Title>                        
+              </Card.Body>
+              
+            </Card>
+          
+        </footer>
+
     </div>
     </>
 );

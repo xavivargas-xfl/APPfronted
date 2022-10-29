@@ -25,7 +25,8 @@ const deleteJugador = async (id) => {
 
 return (
     <>
-    <div className='contenido'>
+    <br></br>
+    <div className='container'>
         <div className='d-grid gap-2'>
             <Link to="/form-jugador" className='btn btn-secondary btn-lg mt-2 mb-2 text-white'>Añadir Jugador</Link>
         </div>

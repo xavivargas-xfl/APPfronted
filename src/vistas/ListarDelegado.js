@@ -25,7 +25,8 @@ const deleteDelegado = async (id) => {
 
 return (
     <>
-    <div className='contenido'>
+    <br></br>
+    <div className='container'>
         <div className='d-grid gap-2'>
             <Link to="/form-delegado" className='btn btn-secondary btn-lg mt-2 mb-2 text-white'>Añadir Delegado</Link>
         </div>

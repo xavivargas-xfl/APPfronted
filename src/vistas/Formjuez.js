@@ -23,7 +23,8 @@ const Formjuez = () => {
     
     return (
         <>
-        <div className='contenido'>
+        <br></br>
+        <div className='container'>
         <div className="modal-header bg-secondary    justify-content-center">
                 <h5 className="modal-title font-weight-bolder text-white" id="exampleModalLabel"><i className="fas fa-file-alt"></i> Registro de Juez </h5>
         </div>
@@ -40,8 +41,8 @@ const Formjuez = () => {
                                     <hr className="sidebar-divider text-bg-dark"></hr>
                             <div className="row">
 
-                                <div className='mb-6'>
-                                <table className="col-md-12">
+                                <div className='col-mb-4'>
+                                <table className="col-md-8">
                                                     <tbody>
                                                     <tr>
                                                         <th className="text-right font-italic">Nombre (s) :</th>

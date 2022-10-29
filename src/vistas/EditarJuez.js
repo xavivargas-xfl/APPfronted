@@ -38,8 +38,9 @@ const EditarJuez = () => {
     
     return (
         <>
-        <div className='contenido'>
-        <div className="modal-header bg-dark    justify-content-center">
+        <br></br>
+        <div className='container'>
+        <div className="modal-header bg-secondary    justify-content-center">
                 <h5 className="modal-title font-weight-bolder text-white" id="exampleModalLabel"><i className="fas fa-file-alt"></i> Registro de Juez </h5>
         </div>
 
@@ -49,7 +50,7 @@ const EditarJuez = () => {
                     <div className="d-flex justify-content-center">
                         <div className="card-body">
                                 <div className="text-center">
-                                            <h4 class="text-secondary font-weight-bold">Nuevo Registro de Juez</h4>
+                                            <h4 class="text-secondary font-weight-bold"> Registro de Juez</h4>
                                             <span>Los campos con (*) son obligatorios</span>
                                     </div>
                                     <hr className="sidebar-divider text-bg-dark"></hr>

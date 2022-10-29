@@ -38,7 +38,8 @@ const EditarDelegado = () => {
 
     return (
         <>
-        <div className="contenido">
+        <br></br>
+        <div className="container">
         <div className="modal-header bg-secondary   justify-content-center">
                 <h5 className="modal-title font-weight-bolder text-white" id="exampleModalLabel"><i className="fas fa-file-alt"></i> Registro </h5>
                 
