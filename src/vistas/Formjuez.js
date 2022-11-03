@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, {useState} from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import url from './url'
 
 //const endpoint = 'http://localhost:8000/api/add-juez'
 
@@ -16,7 +17,7 @@ const Formjuez = () => {
 
     const store = async (e) => {
         e.preventDefault()
-        const res = axios.post("http://localhost:8000/api/add-juez", {nameJuez: nameJuez, apellidoJuez: apellidoJuez, ci: ci,fechaNac: fechaNac,genero: genero,foto: foto})
+        const res = axios.post(`${url}add-juez`, {nameJuez: nameJuez, apellidoJuez: apellidoJuez, ci: ci,fechaNac: fechaNac,genero: genero,foto: foto})
         console.log(res);
         navigate('/listar-juez')
     }
@@ -34,7 +35,7 @@ const Formjuez = () => {
                     <div className="d-flex justify-content-center">
                         <div className="card-body">
                                 <div className="text-center">
-                                            <h4 class="text-secondary font-weight-bold">Nuevo Registro de Juez</h4>
+                                            <h4 className="text-secondary font-weight-bold">Nuevo Registro de Juez</h4>
                                             <span>Los campos con (*) son obligatorios</span>
                                     </div>
                                     <hr className="sidebar-divider text-bg-dark"></hr>
@@ -65,9 +66,9 @@ const Formjuez = () => {
                                                         </td>
                                                     </tr>
                                                     
-                                                         
+                                                        
                                                 
-                                                         <tr>
+                                                        <tr>
                                                         <th className="text-right font-italic" >Fecha de nacimiento :</th>
                                                         <td className="border-bottom border-dark" >
                                                             <input value={fechaNac} onChange={(e)=>{setFechaNac(e.target.value)}} type="text" className="form-control form-control-sm border-0" name="fecha_nac" id="fecha_nac" placeholder="Ingrese su fecha de Nacimiento" required></input>
@@ -75,7 +76,7 @@ const Formjuez = () => {
                                                         </td>
                                                     </tr>
                                                 
-                                                   
+                                                    
                                                     <tr>
                                                         <th className="text-right font-italic" >Genero :</th>
                                                         <td className="border-bottom border-dark" >
@@ -84,7 +85,7 @@ const Formjuez = () => {
                                                         </td>
                                                     </tr>
                                                     
-                                                     <tr>
+                                                    <tr>
                                                         <th className="text-right font-italic" >Foto de Perfil :</th>
                                                         <td className="border-bottom border-dark" >
                                                         <input value={foto} onChange={(e)=>{setFoto(e.target.value)}} type="text" className="form-control form-control-sm border-0" name="foto" id="foto" placeholder="Seleccione un archivo" required></input>
@@ -99,7 +100,7 @@ const Formjuez = () => {
                                 <div className="modal-footer">
                                             <tbody>
                                             <tr>
-                                               
+                                            
                                                 <th><Link to={`/`} className="btn btn-secondary btn-sm me-md-2">Cancelar</Link></th>
                                                     
                                                 <td><button className='btn btn-secondary btn-sm' type="submit" > Guardar</button></td>
@@ -114,8 +115,8 @@ const Formjuez = () => {
         </div>
     </div>
 
-      </>
+    </>
     );
-  }
+}
 
-  export default Formjuez;
+export default Formjuez;

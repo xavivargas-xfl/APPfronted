@@ -1,8 +1,9 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import { useNavigate , useParams, Link} from 'react-router-dom'
+import url from './url';
 
-const endpoint = 'http://localhost:8000/api/'
+//const endpoint = 'http://localhost:8000/api/'
 
 const EditarJugador = () => {
 
@@ -18,13 +19,13 @@ const EditarJugador = () => {
 
     const update = async (e) => {
         e.preventDefault()
-        await axios.put(`${endpoint}editar-jugador/${id}`, {name: name, apellido: apellido, ci: ci,fechaNac: fechaNac,foto: foto})
+        await axios.put(`${url}editar-jugador/${id}`, {name: name, apellido: apellido, ci: ci,fechaNac: fechaNac,foto: foto})
         navigate('/listar-jugador')
     }
 
     useEffect( () =>{
         const getJugadorById = async () => {
-            const response = await axios.get(`${endpoint}index-Jugador/${id}`)
+            const response = await axios.get(`${url}index-Jugador/${id}`)
             setName(response.data.name)
             setApellido(response.data.apellido)
             setDocumento(response.data.ci)

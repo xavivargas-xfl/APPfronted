@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import {Nav} from "react-bootstrap"
+import {Nav,  Navbar, NavDropdown, Card} from "react-bootstrap"
 import Login from './Login';
 import Register from './Register';
 import Recuperar from './Recuperar';
@@ -10,33 +10,38 @@ import ListarJugador from './ListarJugador';
 import ListarJuez from './ListarJuez';
 import EditarJuez from "./EditarJuez";
 import EditarJugador from "./EditarJugador";
+import balonNaranja from "../img/balonNaranja.png";
 
 function Home() {
 return (
-    <div className="container">
-        <h1 style={{color:"orange", textAlign:"center"}}>LIGA DE BASKET</h1>
-        <header>
-            <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Nav.Link as = {Link} to ={"hola"}><span><img className="logo" src="./pngwing.com.png"/></span></Nav.Link>
-                <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul className="navbar-nav me-auto mt-2 mt-lg-0 w-100">
-                    <li className="nav-item">
-                    <Nav.Link as = {Link} to ={"register"}><span>REGISTRO</span></Nav.Link>
-                    </li>
-                    <li className="nav-item flex-fill">
-                    </li>
-                    <li className="nav-item">
-                    <Nav.Link as = {Link} to ={"login"}><span>INICIAR SESION</span></Nav.Link>
-                    </li>
-                    </ul>                   
-                </div>
-            </nav>
-            </div>
-        </header>
+    <div className="">
     
+        <header>
+            <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
+                <>
+                    <Navbar.Brand as = {Link} to ={""}><span><img className="logo" src={balonNaranja} alt="nice"/></span>MAXI-BASKET</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link as = {Link} to ={""} >Categorias</Nav.Link>
+                        <Nav.Link href="#pricing">Partido</Nav.Link>
+                        <NavDropdown title="Categorias" id="collasible-nav-dropdown">
+                            <NavDropdown.Item href="#action/3.1">35+</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">45+</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.3">55+</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action/3.4">Femenino</NavDropdown.Item>
+                        </NavDropdown>
+                        </Nav>
+                        <Nav>
+                        <Nav.Link eventKey={1} as = {Link} to ={"register"}>Registrarse</Nav.Link>
+                        <Nav.Link eventKey={2} as = {Link} to ={"login"}>Login</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </>
+                </Navbar>
+        </header>   
         <Routes>
-        <Route path="home/*" element={<Home />} />
         <Route path="preregistro" element={<PreRegistro />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
@@ -46,27 +51,25 @@ return (
         <Route path='/editar-juez/:id' element={ <EditarJuez/> } />
         <Route path='/editar-jugador/:id' element={ <EditarJugador/> } />
         </Routes>
-    <div className="container">
-    <div className="jojo" >
-    <footer className="pie-pagina">
-        <div className="grupo-1">
-            <div className="box">
-                <figure>                
-                        <img className="lol" src="./pngwing.com.png" alt="Logo de SLee Dw"/>                   
-                </figure>
+
+
+        <div className="container">
+            <div className="jojo" >
+                <div className="cuerpo">
+                </div>
+                <div className="cuerpo1">
+                </div>
             </div>
-            <div className="box2">
-                <p>SMART ACTION SOFTWARE</p>
-                <p>copyright@</p>
-                <p>dev.sas@gmail.com</p>
+            <div>
+            <footer className="pie-pagina" expand="lg">          
+                <Card className="text-center bg-dark text-white">          
+                <Card.Body>
+                    <Card.Title><small>&copy; 2022 <b>SAS</b> - Todos los Derechos Reservados.</small></Card.Title>                        
+                </Card.Body>            
+            </Card>       
+            </footer>
             </div>
         </div>
-        <div className="grupo-2">
-            <small>&copy; 2022 <b>SAS</b> - Todos los Derechos Reservados.</small>
-        </div>
-    </footer>
-    </div>
-    </div>  
     </div>
 );
 }

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
+import url from './url';
 
 export default function AuthUser(){
     const navigate = useNavigate();
@@ -37,7 +38,7 @@ export default function AuthUser(){
     }
 
     const http = axios.create({
-        baseURL:"http://localhost:8000/api",
+        baseURL:`${url}`,
         headers:{
             "Content-type" : "application/json",
             "Authorization" : `Bearer ${token}`

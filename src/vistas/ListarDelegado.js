@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import url from './url'
 
-const endpoint = 'http://localhost:8000/api'
+//const endpoint = 'http://localhost:8000/api'
 
 function ListarDelegado() {
     const [ delegados, setDelegado ] = useState( [] )
@@ -12,13 +13,13 @@ function ListarDelegado() {
     }, [])
 
 const getAllDelegado = async () => {
-    const response = await axios.get(`${endpoint}/listar-delegado`)
+    const response = await axios.get(`${url}listar-delegado`)
     setDelegado(response.data)
     //console.log(response.data)
 }
 
 const deleteDelegado = async (id) => {
-    await axios.delete(`${endpoint}/eliminar-delegado/${id}`)
+    await axios.delete(`${url}/eliminar-delegado/${id}`)
     getAllDelegado()
 }
 

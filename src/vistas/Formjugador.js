@@ -1,8 +1,8 @@
 import * as React from "react";
-//import {Link } from "react-router-dom";
 import '../Estilos/Formjugador.css'
 import axios from "axios";
 import { useNavigate, Link } from 'react-router-dom'
+import url from './url'
 
 
 
@@ -13,7 +13,7 @@ function Formjugador() {
     const [jugador, setJugador]=React.useState({name:"", apellido:"", ci:"", fechaNac:"", foto:""});
 
     async function guardarJugador(){
-        const res = await axios.post("http://localhost:8000/api/add-jugador", jugador);
+        const res = await axios.post(`${url}add-jugador`, jugador);
         console.log(res);
         navigate('/listar-jugador')
     }
@@ -30,10 +30,10 @@ function Formjugador() {
         <div className="card-shadow">
             <div className="modal-body">
                 <form action=""  >
-                    <div classname="d-flex justify-content-center">
+                    <div className="d-flex justify-content-center">
                             <div className="card-body">
                                     <div className="text-center">
-                                            <h4 class="text-secondary font-weight-bold">Nuevo Registro de Jugador</h4>
+                                            <h4 className="text-secondary font-weight-bold">Nuevo Registro de Jugador</h4>
                                             <span>Los campos con (*) son obligatorios</span>
                                     </div>
 
@@ -41,7 +41,7 @@ function Formjugador() {
                                 <div className="row">
                                 
                                         <div className="col-md-6">
-                                            <span class="text-secondary font-weight-bold float-left">DATOS PERSONALES</span>
+                                            <span className="text-secondary font-weight-bold float-left">DATOS PERSONALES</span>
                                                 <table className="col-md-12">
                                                     <tbody>
                                                     <tr>

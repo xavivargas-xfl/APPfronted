@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import url from './url'
 
-const endpoint = 'http://localhost:8000/api'
+//const endpoint = 'http://localhost:8000/api'
 
 function ListarJugador() {
     const [ jugadores, setJugador ] = useState( [] )
@@ -12,13 +13,13 @@ function ListarJugador() {
     }, [])
 
 const getAllJugador = async () => {
-    const response = await axios.get(`${endpoint}/listar-jugador`)
+    const response = await axios.get(`${url}listar-jugador`)
     setJugador(response.data)
     //console.log(response.data)
 }
 
 const deleteJugador = async (id) => {
-    await axios.delete(`${endpoint}/eliminar-jugador/${id}`)
+    await axios.delete(`${url}eliminar-jugador/${id}`)
     getAllJugador()
 }
 

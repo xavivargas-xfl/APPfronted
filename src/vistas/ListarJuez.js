@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-
-const endpoint = 'http://localhost:8000/api'
+import url from './url'
 
 const ListarJuez = () => {
     
@@ -13,13 +12,13 @@ const ListarJuez = () => {
   }, [])
 
   const getAllJuez = async () => {
-    const response = await axios.get(`${endpoint}/index/`)
+    const response = await axios.get(`${url}index`)
     setJuez(response.data)
     //console.log(response.data)
   }
 
   const deleteJuez = async (id) => {
-    await axios.delete(`${endpoint}/eliminar-juez/${id}`)
+    await axios.delete(`${url}eliminar-juez/${id}`)
     getAllJuez()
   }
     return (
