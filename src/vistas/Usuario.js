@@ -3,15 +3,18 @@ import { Routes, Route, Link } from "react-router-dom";
 import {Nav} from "react-bootstrap"
 import Formjuez from './Formjuez';
 import Formjugador from './Formjugador';
+import FormEquipo from './FormEquipo';
 import AuthUser from './AuthUser';
 import ValidarRegistro from './ValidarRegistro';
 import ListarJugador from './ListarJugador';
 import ListarJuez from './ListarJuez';
+import ListarEquipo from './ListarEquipo';
 import EditarJuez from "./EditarJuez";
 import EditarJugador from "./EditarJugador";
 import FormDelegado from './FormDelegado';
 import ListarDelegado from './ListarDelegado';
 import EditarDelegado from './EditarDelegado';
+import './Style.css';
 
 function Usuario() {
     const {user} = AuthUser();
@@ -44,8 +47,12 @@ return (
                     <li className="nav-item">
                     <Nav.Link as = {Link} to ={"listar-juez"}><span>JUECES</span></Nav.Link>
                     </li>
+                    <li className="nav-item">
+                    <Nav.Link as = {Link} to ={"listar-equipo"}><span>EQUIPOS</span></Nav.Link>
+                    </li>
                     <li className="nav-item flex-fill">
                     </li>
+                    
                     <li className="nav-item">
                     <span role="button" className="nav-link" onClick={logoutUser}>CERRAR SESION</span>
                     </li>
@@ -61,9 +68,11 @@ return (
         <Route path="form-jugador" element={<Formjugador />} />
         <Route path="form-delegado" element={<FormDelegado />} />
         <Route path="form-juez" element={<Formjuez />} />
+        <Route path="form-equipo" element={<FormEquipo />} />
         <Route path="listar-jugador" element={<ListarJugador />} />
         <Route path="listar-juez" element={<ListarJuez />} />
         <Route path="listar-delegado" element={<ListarDelegado />} />
+        <Route path="listar-equipo" element={<ListarEquipo />} />
         <Route path='/editar-juez/:id' element={ <EditarJuez/> } />
         <Route path='/editar-jugador/:id' element={ <EditarJugador/> } />
         <Route path='/editar-delegado/:id' element={ <EditarDelegado/> } />
