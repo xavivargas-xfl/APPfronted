@@ -10,6 +10,9 @@ import ListarJugador from './ListarJugador';
 import ListarJuez from './ListarJuez';
 import EditarJuez from "./EditarJuez";
 import EditarJugador from "./EditarJugador";
+import balonNaranja from "../img/balonNaranja.png";
+import ListarCampeonato from "./ListarCampeonato";
+import ListarEquipo from "./ListarEquipo";
 
 function Home() {
 return (
@@ -45,6 +48,8 @@ return (
         <Route path="listar-juez" element={<ListarJuez />} />
         <Route path='/editar-juez/:id' element={ <EditarJuez/> } />
         <Route path='/editar-jugador/:id' element={ <EditarJugador/> } />
+        <Route path="listar-campeonato" element={<ListarCampeonato />} />
+        <Route path="listar-equipo" element={<ListarEquipo />} />
         </Routes>
     <div className="container">
     <div className="jojo" >

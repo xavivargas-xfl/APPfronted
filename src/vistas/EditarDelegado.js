@@ -6,30 +6,43 @@ const endpoint = 'http://localhost:8000/api/'
 
 const EditarDelegado = () => {
 
-    const [name, setName] = useState('')
+    const [ci, setCi] = useState('')
+    const [nombre, setNombre] = useState('')
     const [apellido, setApellido] = useState('')
-    const [ci, setDocumento] = useState('')
+    const [sexo, setSexo] = useState('')
+    const [nacionalidad, setNacionalidad] = useState('')
     const [fechaNac, setFechaNac] = useState('')
-    //const [genero, setGenero] = useState('')
     const [foto, setFoto] = useState('')
-    
+    const [rol, setRol] = useState('')
+
     const navigate = useNavigate()
     const {id} = useParams()
 
     const update = async (e) => {
         e.preventDefault()
-        await axios.put(`${endpoint}editar-delegado/${id}`, {name: name, apellido: apellido, ci: ci,fechaNac: fechaNac,foto: foto})
-        navigate('/listar-delegado')
+        await axios.put(`${endpoint}editar-persona/${id}`, {ci:ci, nombre: nombre, apellido: apellido, sexo: sexo, nacionalidad: nacionalidad, fechaNac: fechaNac,foto: foto, rol: rol})
+        
+        if(rol ==='j'){
+            navigate('/listar-jugador')
+        }else if(rol === 'd'){
+            navigate('/listar-delegado')
+        }else if(rol === 'z'){
+            navigate('/listar-juez')
+        }
+        
     }
 
     useEffect( () =>{
         const getdelegadoById = async () => {
-            const response = await axios.get(`${endpoint}index-Delegado/${id}`)
-            setName(response.data.name)
+            const response = await axios.get(`${endpoint}index-persona/${id}`)
+            setCi(response.data.ci)
+            setNombre(response.data.nombre)
             setApellido(response.data.apellido)
-            setDocumento(response.data.ci)
+            setSexo(response.data.sexo)
+            setNacionalidad(response.data.nacionalidad)
             setFechaNac(response.data.fechaNac)         
             setFoto(response.data.foto)
+            setRol(response.data.rol)
         }
         getdelegadoById()
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -51,7 +64,7 @@ const EditarDelegado = () => {
                             <div className="card-body">
 
                                     <div className="text-center">
-                                            <h4 className="text-secondary font-weight-bold">Nuevo Registro de delegado</h4>
+                                            <h4 className="text-secondary font-weight-bold">Editar datos Personales</h4>
                                             <span>Los campos con (*) son obligatorios</span>
                                     </div>
 
@@ -62,11 +75,17 @@ const EditarDelegado = () => {
                             
                                                 <table className="col-md-12">
                                                     <tbody>
-
+                                                    <tr>
+                                                        <th className="text-right font-italic">Carnet de Identidad:</th>
+                                                        <td className="border-bottom border-dark">
+                                                            <input value={ci} onChange={(e)=>{setCi(e.target.value)}} type="text" className="form-control form-control-sm border-0" name="ci" id="ci" placeholder="Ingrese su Nombre" required></input>
+                                                            
+                                                        </td>
+                                                    </tr>
                                                     <tr>
                                                         <th className="text-right font-italic">Nombre (s) :</th>
                                                         <td className="border-bottom border-dark">
-                                                            <input value={name} onChange={(e)=>{setName(e.target.value)}} type="text" className="form-control form-control-sm border-0" name="nombre" id="nombre" placeholder="Ingrese su Nombre" required></input>
+                                                            <input value={nombre} onChange={(e)=>{setNombre(e.target.value)}} type="text" className="form-control form-control-sm border-0" name="nombre" id="nombre" placeholder="Ingrese su Nombre" required></input>
                                                             
                                                         </td>
                                                     </tr>
@@ -79,16 +98,26 @@ const EditarDelegado = () => {
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <th className="text-right font-italic" >Documento :</th>
+                                                        <th className="text-right font-italic" >Genero :</th>
                                                         <td className="border-bottom border-dark" >
-                                                            <input  value={ci} onChange={(e)=>{setDocumento(e.target.value)}} type="text" className="form-control form-control-sm border-0" name="documento" id="documento" placeholder="Ingrese su Documento" required></input>
+                                                            <input  value={sexo} onChange={(e)=>{setSexo(e.target.value)}} type="text" className="form-control form-control-sm border-0" name="sexo" id="sexo" placeholder="Ingrese su Documento" required></input>
                                                             
                                                         </td>
                                                     </tr>
-                                                    
-                                                
-                                                
-                                                    
+                                                    <tr>
+                                                        <th className="text-right font-italic" >Nacionalidad :</th>
+                                                        <td className="border-bottom border-dark" >
+                                                            <input  value={nacionalidad} onChange={(e)=>{setNacionalidad(e.target.value)}} type="text" className="form-control form-control-sm border-0" name="nacionalidad" id="nacionalidad" placeholder="Ingrese su Documento" required></input>
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th className="text-right font-italic" >Fecha de nacimiento :</th>
+                                                        <td className="border-bottom border-dark" >
+                                                            <input value={fechaNac} onChange={(e)=>{setFechaNac(e.target.value)}} type="date" className="form-control form-control-sm border-0" name="fechaNac" id="fechaNac" placeholder="Ingrese su fecha de Nacimiento" required></input>
+                                                            
+                                                        </td>
+                                                    </tr>
                                                     <tr>
                                                         <th className="text-right font-italic" >Foto de Perfil :</th>
                                                         <td className="border-bottom border-dark" >
@@ -96,15 +125,6 @@ const EditarDelegado = () => {
                                                             
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <th className="text-right font-italic" >Fecha de nacimiento :</th>
-                                                        <td className="border-bottom border-dark" >
-                                                            <input value={fechaNac} onChange={(e)=>{setFechaNac(e.target.value)}} type="date" className="form-control form-control-sm border-0" name="fecha_nac" id="fecha_nac" placeholder="Ingrese su fecha de Nacimiento" required></input>
-                                                            
-                                                        </td>
-                                                    </tr>
-                                                                    
-                                                    
                                                     </tbody>
                                                 </table>
                                         </div>

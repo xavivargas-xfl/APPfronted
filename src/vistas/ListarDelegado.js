@@ -12,13 +12,15 @@ function ListarDelegado() {
     }, [])
 
 const getAllDelegado = async () => {
-    const response = await axios.get(`${endpoint}/listar-delegado`)
+    const response = await axios.get(`${endpoint}/rol-persona/d`)
+    console.log(response.data)
     setDelegado(response.data)
     //console.log(response.data)
 }
 
-const deleteDelegado = async (id) => {
-    await axios.delete(`${endpoint}/eliminar-delegado/${id}`)
+const deleteDelegado = async (ci) => {
+    
+    await axios.delete(`${endpoint}/eliminar-persona/${ci}`)
     getAllDelegado()
 }
 
@@ -37,21 +39,26 @@ return (
                     <thead className='bg-secondary text-white'>
                         <tr>
                             <th>Id</th>
+                            <th>Documento Identidad:</th>
                             <th>Nombre</th>
                             <th>Apellidos</th>
-                            <th>Documento</th>
-                            <th>Fecha</th>
+                            <th>Genero</th>
+                            <th>nacionalidad</th>
+                            <th>Fecha nacimiento</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         { delegados.map( (delegado,index) => (
                             
-                            <tr key={delegado.id} >
-                                <td> {index+1} </td>    
-                                <td> {delegado.name} </td>    
+                            //<tr key={delegado.id} >
+                            <tr key={0} >
+                                <td> {index+1} </td> 
+                                <td> {delegado.ci} </td>   
+                                <td> {delegado.nombre} </td>    
                                 <td> {delegado.apellido} </td>    
-                                <td> {delegado.ci} </td>
+                                <td> {delegado.sexo} </td>
+                                <td> {delegado.nacionalidad} </td>
                                 <td> {delegado.fechaNac  } </td>
                                 <td>
                                     <Link to={`/editar-delegado/${delegado.id}`} className="fa-solid fa-pen-to-square"></Link>

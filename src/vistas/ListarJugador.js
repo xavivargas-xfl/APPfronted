@@ -12,13 +12,13 @@ function ListarJugador() {
     }, [])
 
 const getAllJugador = async () => {
-    const response = await axios.get(`${endpoint}/listar-jugador`)
+    const response = await axios.get(`${endpoint}/rol-persona/j`)
     setJugador(response.data)
     //console.log(response.data)
 }
 
 const deleteJugador = async (id) => {
-    await axios.delete(`${endpoint}/eliminar-jugador/${id}`)
+    await axios.delete(`${endpoint}/eliminar-persona/${id}`)
     getAllJugador()
 }
 
@@ -37,24 +37,28 @@ return (
                     <thead className='bg-secondary text-white'>
                         <tr>
                             <th>Id</th>
+                            <th>Documento Identidad:</th>
                             <th>Nombre</th>
                             <th>Apellidos</th>
-                            <th>Documento</th>
-                            <th>Fecha</th>
+                            <th>Genero</th>
+                            <th>nacionalidad</th>
+                            <th>Fecha nacimiento</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         { jugadores.map( (jugador,index) => (
                             
-                            <tr key={jugador.id} >
-                                <td> {index+1} </td>    
-                                <td> {jugador.name} </td>    
-                                <td> {jugador.apellido} </td>    
-                                <td> {jugador.ci} </td>
+                            <tr key={0} >
+                                <td> {index+1} </td>
+                                <td> {jugador.ci} </td> 
+                                <td> {jugador.nombre} </td>    
+                                <td> {jugador.apellido} </td> 
+                                <td> {jugador.sexo} </td> 
+                                <td> {jugador.nacionalidad} </td>  
                                 <td> {jugador.fechaNac  } </td>
                                 <td>
-                                    <Link to={`/editar-jugador/${jugador.id}`} className="fa-solid fa-pen-to-square"></Link>
+                                    <Link to={`/editar-delegado/${jugador.id}`} className="fa-solid fa-pen-to-square"></Link>
                                     <button onClick={ ()=>deleteJugador(jugador.id) }className="btn btn-sm btn-light btn-circle" ><i className="fas fa-trash-alt text-danger"></i></button>
                                 </td>
 

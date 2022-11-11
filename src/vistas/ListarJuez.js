@@ -13,13 +13,13 @@ const ListarJuez = () => {
   }, [])
 
   const getAllJuez = async () => {
-    const response = await axios.get(`${endpoint}/index/`)
+    const response = await axios.get(`${endpoint}/rol-persona/z`)
     setJuez(response.data)
     //console.log(response.data)
   }
 
   const deleteJuez = async (id) => {
-    await axios.delete(`${endpoint}/eliminar-juez/${id}`)
+    await axios.delete(`${endpoint}/eliminar-persona/${id}`)
     getAllJuez()
   }
     return (
@@ -33,30 +33,29 @@ const ListarJuez = () => {
                                 <table className='table table-striped'>
                                     <thead className='bg-secondary text-white'>
                                         <tr>
-                                            <th>Num.</th>
-                                            <th>Nombre</th>
-                                            <th>Apellido</th>
-                                            <th>Documento</th>
-                                            <th>Fecha de Nacimiento</th>
-                                            <th>Genero</th>
-                                            <th>Foto</th>
-                                            <th>Opciones</th>
+                                          <th>Id</th>
+                                          <th>Documento Identidad:</th>
+                                          <th>Nombre</th>
+                                          <th>Apellidos</th>
+                                          <th>Genero</th>
+                                          <th>nacionalidad</th>
+                                          <th>Fecha nacimiento</th>
+                                          <th>Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         { jueces.map( (juez,index) => (
-                                            <tr key={juez.id}> 
-                                                  <td> {index+1} </td> 
-                                                <td> {juez.nameJuez} </td> 
-                                                <td> {juez.apellidoJuez} </td>    
+                                            <tr key={0}> 
+                                                <td> {index+1} </td> 
                                                 <td> {juez.ci} </td> 
+                                                <td> {juez.nombre} </td> 
+                                                <td> {juez.apellido} </td>    
+                                                <td> {juez.sexo} </td> 
+                                                <td> {juez.nacionalidad} </td> 
                                                 <td> {juez.fechaNac} </td> 
-                                                <td> {juez.genero} </td>
-                                                <td> {juez.foto} </td>  
-
-                                                
+                                                  
                                                 <td>
-                                                    <Link to={`/editar-juez/${juez.id}`} className="fa-solid fa-pen-to-square"></Link>
+                                                    <Link to={`/editar-delegado/${juez.id}`} className="fa-solid fa-pen-to-square"></Link>
                                                     <button onClick={ ()=>deleteJuez(juez.id) } className="btn btn-sm btn-light btn-circle" ><i className="fas fa-trash-alt text-danger"></i></button>
                                                 </td>
 

@@ -12,6 +12,11 @@ import EditarJugador from "./EditarJugador";
 import FormDelegado from './FormDelegado';
 import ListarDelegado from './ListarDelegado';
 import EditarDelegado from './EditarDelegado';
+import balonNaranja from "../img/balonNaranja.png";
+import FormCampeonato from './FormCampeonato';
+import ListarCampeonato from './ListarCampeonato';
+import FormEquipo from './Formequipo';
+import ListarEquipo from './ListarEquipo';
 
 function Usuario() {
     const {user} = AuthUser();
