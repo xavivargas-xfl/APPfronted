@@ -11,6 +11,7 @@ import ListarJuez from './ListarJuez';
 import EditarJuez from "./EditarJuez";
 import EditarJugador from "./EditarJugador";
 import balonNaranja from "../img/balonNaranja.png";
+import TablaPosiciones from "./TablaPosiciones";
 
 function Home() {
 return (
@@ -19,7 +20,7 @@ return (
         <header>
               <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
                   <>
-                    <Navbar.Brand  href="#home"><span><img className="logo" src={balonNaranja} alt="nice"/></span>MAXI-BASKET</Navbar.Brand>
+                    <Navbar.Brand  href="listar-puntos"><span><img className="logo" src={balonNaranja} alt="nice"/></span>MAXI-BASKET</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <Nav className="me-auto">
@@ -52,12 +53,14 @@ return (
         <Route path="listar-juez" element={<ListarJuez />} />
         <Route path='/editar-juez/:id' element={ <EditarJuez/> } />
         <Route path='/editar-jugador/:id' element={ <EditarJugador/> } />
+        <Route path="listar-puntos" element={ <TablaPosiciones/> } />
         </Routes>
 
-
+       
        <div className="container">
             <div className="jojo" >
                 <div className="cuerpo">
+                 
                 </div>
                 <div className="cuerpo1">
                 </div>

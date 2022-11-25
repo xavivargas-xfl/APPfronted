@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import {Nav,  Navbar, NavDropdown, Button, Card} from "react-bootstrap"
+import {Nav,  Navbar,  Card} from "react-bootstrap"
 import Formjuez from './Formjuez';
 import Formjugador from './Formjugador';
 import AuthUser from './AuthUser';
@@ -13,6 +13,8 @@ import FormDelegado from './FormDelegado';
 import ListarDelegado from './ListarDelegado';
 import EditarDelegado from './EditarDelegado';
 import balonNaranja from "../img/balonNaranja.png";
+import RolPartidos from "./RolPartidos";
+import ClasificarPartidos from "./ClasificarPartidos";
 
 function Usuario() {
     const {user} = AuthUser();
@@ -38,6 +40,8 @@ return (
                         <Nav.Link as = {Link} to ={"listar-delegado"}>DELEGADOS</Nav.Link>
                         <Nav.Link as = {Link} to ={"listar-jugador"}>JUGADORES</Nav.Link>
                         <Nav.Link as = {Link} to ={"listar-juez"}>JUECES</Nav.Link>
+                        <Nav.Link as = {Link} to ={"rol-partidos"}>FIXCHURE</Nav.Link>
+                        <Nav.Link as = {Link} to ={"class-partido"}>GERERAR PARTIDOS</Nav.Link>
                                            
                       </Nav>
                       <Nav>                       
@@ -61,6 +65,8 @@ return (
         <Route path='/editar-juez/:id' element={ <EditarJuez/> } />
         <Route path='/editar-jugador/:id' element={ <EditarJugador/> } />
         <Route path='/editar-delegado/:id' element={ <EditarDelegado/> } />
+        <Route path='/rol-partidos' element={ <RolPartidos/> } />
+        <Route path='/class-partido' element={ <ClasificarPartidos/> } />
         </Routes>
         
 

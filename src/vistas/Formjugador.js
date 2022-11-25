@@ -74,7 +74,7 @@ function Formjugador() {
                                                     <tr>
                                                         <th className="text-right font-italic" >Foto de Perfil :</th>
                                                         <td className="border-bottom border-dark" >
-                                                        <input value={jugador.foto} onChange={(e)=>{setJugador({...jugador,foto:e.target.value})}} type="file" className="form-control form-control-sm border-0" name="foto" id="foto" placeholder="Seleccione un archivo" required></input>
+                                                        <input value={jugador.foto} onChange={(e)=>{setJugador({...jugador,foto:e.target.value})}} type="file" className="form-control form-control-sm border-0" accept=".png" name="foto" id="foto" placeholder="Seleccione un archivo" required></input>
                                                             
                                                         </td>
                                                     </tr>
